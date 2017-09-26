@@ -1,10 +1,7 @@
-resource "aws_db_security_group" "allow_all" {
+resource "aws_security_group" "allow_all" {
   name        = "allow_all"
   description = "Allow all inbound traffic"
-
-  ingress {
-    cidr = "80.113.34.59/32"
-  }
+  vpc_id      = "${aws_vpc.db_vpc.id}"
 
   ingress {
     from_port   = 0

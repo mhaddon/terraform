@@ -5,3 +5,4 @@ terraform.tfstate
 terraform.tfstate.backup
 crash.log
 states/
+.DS_STORE
