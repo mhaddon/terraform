@@ -1,0 +1,1 @@
+(cd stages/one && terraform destroy -force)
