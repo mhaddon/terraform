@@ -12,6 +12,7 @@ resource "aws_subnet" "primary" {
   tags {
     Name = "tf_primary"
   }
+  map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "secondary" {

@@ -8,7 +8,7 @@ resource "aws_db_instance" "default" {
   name                       = "airportdemo"
   username                   = "root"
   password                   = "drowssap"
-  snapshot_identifier        = "airportdemo-db"
+//  snapshot_identifier        = "airportdemo-db"
   final_snapshot_identifier  = "airportdemo-db-${md5(timestamp())}"
   skip_final_snapshot        = true
 

@@ -1,0 +1,3 @@
+#cloud-config
+runcmd:
+    - [ sh, -c, "docker run -d -p 8080:8080 mhaddon/airportdemo:latest -e \"SPRING.DATASOURCE.URL=jdbc:mysql://db:3306/airportdemo?autoReconnect=true&useSSL=false&serverTimezone=UTC\"" ]
