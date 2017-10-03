@@ -12,6 +12,7 @@ graph.png
 # Key Files
 .pem
 aws_test.pem
+aws_test2.pem
 
 # Sensitive Files
 terraform.tfvars
