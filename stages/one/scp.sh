@@ -1,0 +1,1 @@
+scp -i aws_test.pem aws_test.pem ubuntu@ec2-13-58-56-243.us-east-2.compute.amazonaws.com:~/aws_test.pem

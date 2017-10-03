@@ -1,15 +1,26 @@
-resource "aws_vpc" "my_vpc" {
+resource "aws_vpc" "default" {
   cidr_block = "172.16.0.0/16"
   enable_dns_hostnames = true
-  // default_route_table_id = "${aws_route_table.default_route_table.id}"
 
   tags {
     Name = "tf_mt_vpc"
   }
 }
 
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical
+}
+
 data "aws_availability_zones" "available" {}
-
-
-
-

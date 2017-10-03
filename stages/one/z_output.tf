@@ -1,8 +1,8 @@
 output "db_vpc_id" {
-  value = "${aws_vpc.my_vpc.id}"
+  value = "${aws_vpc.default.id}"
 }
 output "subnet_primary" {
-  value = "${aws_subnet.ec2_subnet.*.id}"
+  value = "${aws_subnet.ec2.*.id}"
 }
 //output "subnet_secondary" {
 //  value = "${aws_subnet.secondary.id}"

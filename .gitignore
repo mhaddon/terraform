@@ -1,15 +1,21 @@
+# Generated Files
 .idea/
 .terraform/
-stages/one/variables.tf
+states/
 .terraform.tfstate.lock.info
 terraform.tfstate
 terraform.tfstate.backup
-crash.log
-states/
+terraform.bk.tfstate
 .DS_STORE
+graph.png
+
+# Key Files
+.pem
 aws_test.pem
-aws_test copy.pem
-aws_test2.pem
-stages/one/graph.png
+
+# Sensitive Files
+terraform.tfvars
 network.text
-stages/one/terraform.bk.tfstate
+
+# Log Files
+crash.log
