@@ -12,3 +12,4 @@ aws_test copy.pem
 aws_test2.pem
 stages/one/graph.png
 network.text
+stages/one/terraform.bk.tfstate

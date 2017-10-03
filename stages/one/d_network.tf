@@ -19,9 +19,9 @@ resource "aws_subnet" "nat" {
 resource "aws_nat_gateway" "primary_nat" {
   count = "${length(data.aws_availability_zones.available.names)-1}"
   allocation_id = "${element(aws_eip.primary_eip.*.id,count.index)}"
+//  subnet_id = "${element(aws_subnet.ec2_subnet.*.id,count.index)}"
   subnet_id = "${aws_subnet.nat.id}"
   depends_on = ["aws_internet_gateway.default"]
-
 }
 
 //resource "aws_nat_gateway" "secondary_nat" {
