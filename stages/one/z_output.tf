@@ -20,9 +20,12 @@ output "aws_security_group_allow_all" {
 //output "db_id" {
 //  value = "${aws_db_instance.default.id}"
 //}
-//output "db_endpoint" {
-//  value = "${aws_db_instance.default.endpoint}"
-//}
+output "db_endpoint" {
+  value = "${aws_db_instance.default.endpoint}"
+}
+output "db_name" {
+  value = "${aws_db_instance.default.name}"
+}
 //output "route53_id" {
 //  value = "${aws_route53_record.www.id}"
 //}
