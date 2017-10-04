@@ -4,7 +4,7 @@ data "terraform_remote_state" "output" {
   backend = "s3"
   config {
     bucket = "${var.bucket}"
-    key    = "${var.key}"
+    key    = "state_one"
     region = "${var.region}"
   }
 }
