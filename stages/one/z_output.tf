@@ -26,6 +26,12 @@ output "db_endpoint" {
 output "db_name" {
   value = "${aws_db_instance.default.name}"
 }
+output "db_password" {
+  value = "${aws_db_instance.default.password}"
+}
+output "db_username" {
+  value = "${aws_db_instance.default.username}"
+}
 //output "route53_id" {
 //  value = "${aws_route53_record.www.id}"
 //}

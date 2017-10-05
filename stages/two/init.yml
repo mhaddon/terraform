@@ -1,0 +1,14 @@
+#cloud-config
+coreos:
+  units:
+    - name: "dockerstart.service"
+      command: "start"
+      content: |
+        [Unit]
+        Description=Start
+        Author=Me
+
+        [Service]
+        Restart=always
+        ExecStart=/usr/bin/docker run --name=server -p 8080:8082 -e "SPRING_DATASOURCE_URL=${database_endpoint}" -e "SPRING_DATASOURCE_PASSWORD=${database_password}" -e "SPRING_DATASOURCE_USERNAME=${database_username}" "${image_name}"
+        ExecStop=/usr/bin/docker rm -f server

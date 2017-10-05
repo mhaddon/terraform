@@ -10,16 +10,6 @@ data "template_file" "maintenaince" {
   }
 }
 
-data "template_cloudinit_config" "master" {
-  gzip          = false
-  base64_encode = false
-  part {
-    content_type = "text/cloud-config"
-    content = "${data.template_file.maintenaince.rendered}"
-    merge_type   = "dict(recurse_array)+list(append)"
-  }
-}
-
 resource "aws_instance" "maintenance" {
   ami = "${data.aws_ami.ubuntu.id}"
   instance_type = "${var.maintenance_instance["type"]}"
@@ -27,7 +17,7 @@ resource "aws_instance" "maintenance" {
   vpc_security_group_ids = ["${aws_security_group.allow_all.id}"]
   key_name = "aws_test"
   associate_public_ip_address = true
-  user_data          = "${data.template_cloudinit_config.master.rendered}"
+  user_data          = "${data.template_file.maintenaince.rendered}"
 
   connection {
     user = "ubuntu"
