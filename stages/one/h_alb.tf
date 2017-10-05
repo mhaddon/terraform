@@ -2,14 +2,14 @@ resource "aws_alb" "test" {
   name = "test-alb-tf"
   internal = false
   security_groups = ["${aws_security_group.allow_all.id}"]
-  subnets = ["${aws_subnet.ec2_subnet.*.id}"]
+  subnets = ["${aws_subnet.ec2.*.id}"]
 
   enable_deletion_protection = false
 
 }
 
 resource "aws_alb_target_group" "test" {
-  port = 3000
+  port = 8080
   protocol = "HTTP"
   vpc_id = "${aws_vpc.default.id}"
 }
