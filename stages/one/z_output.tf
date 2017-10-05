@@ -4,9 +4,9 @@ output "db_vpc_id" {
 output "subnet_primary" {
   value = "${aws_subnet.ec2.*.id}"
 }
-//output "subnet_secondary" {
-//  value = "${aws_subnet.secondary.id}"
-//}
+output "security_group_id"{
+  value = "${aws_security_group.allow_all.id}"
+}
 output "subnet_maintenance" {
   value = "${aws_subnet.maintenance.id}"
 }

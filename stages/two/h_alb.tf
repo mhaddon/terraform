@@ -1,9 +1,9 @@
 resource "aws_alb" "test" {
   name = "test-alb-tf"
-  internal = false
-  security_groups = ["${aws_security_group.allow_all.id}"]
-  subnets = ["${aws_subnet.ec2.*.id}"]
-
+  internal = true
+  security_groups = ["${data.terraform_remote_state.output.security_group_id}"]
+  subnets = ["${data.terraform_remote_state.output.subnet_primary}"]
+  
   enable_deletion_protection = false
 
 }
@@ -11,7 +11,7 @@ resource "aws_alb" "test" {
 resource "aws_alb_target_group" "test" {
   port = 8080
   protocol = "HTTP"
-  vpc_id = "${aws_vpc.default.id}"
+  vpc_id = "${data.terraform_remote_state.output.db_vpc_id}"
 }
 
 resource "aws_alb_listener" "test" {

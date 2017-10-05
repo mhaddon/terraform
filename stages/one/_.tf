@@ -8,11 +8,6 @@ variable "database" {
   }
 }
 
-variable "aws_route53_record_zone_id" {
-  description = "aws_route53_record_zone_id"
-  default = ""
-}
-
 variable "maintenance_instance" {
   type = "map"
   default = {

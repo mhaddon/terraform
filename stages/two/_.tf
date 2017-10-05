@@ -7,3 +7,8 @@ variable "coreos_images" {
     max_count = 4
   }
 }
+
+variable "aws_route53_record_zone_id" {
+  description = "aws_route53_record_zone_id"
+  default = ""
+}

@@ -15,7 +15,7 @@ aws_test.pem
 aws_test2.pem
 
 # Sensitive Files
-terraform.tfvars
+stages/two/terraform.tfvars
 network.text
 
 # Log Files
