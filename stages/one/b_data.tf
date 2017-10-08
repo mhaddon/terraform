@@ -23,4 +23,20 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+data "aws_ami" "coreos" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["CoreOS-stable-1465*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["595879546273"] # CoreOS
+}
+
 data "aws_availability_zones" "available" {}

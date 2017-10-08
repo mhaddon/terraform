@@ -1,0 +1,14 @@
+#cloud-config
+coreos:
+  units:
+    - name: "dockerstart.service"
+      command: "start"
+      content: |
+        [Unit]
+        Description=Start
+        Author=Me
+
+        [Service]
+        Restart=always
+        ExecStart=/usr/bin/docker run --name=server -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" "${image_name}"
+        ExecStop=/usr/bin/docker rm -f server

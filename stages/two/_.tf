@@ -1,10 +1,10 @@
 variable "coreos_images" {
   type = "map"
   default = {
-    instance_type = "t2.micro"
-    docker_image = "mhaddon/airportdemo"
-    min_count = 0
-    max_count = 0
+    instance_type = "t2.small"
+    docker_image = "mhaddon/airportdemo:latest"
+    min_count = 2
+    max_count = 4
   }
 }
 

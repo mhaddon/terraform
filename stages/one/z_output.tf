@@ -32,6 +32,9 @@ output "db_password" {
 output "db_username" {
   value = "${aws_db_instance.default.username}"
 }
+output "elastic_search_server_ip" {
+  value = "${aws_instance.elasticsearch_server.private_ip}"
+}
 //output "route53_id" {
 //  value = "${aws_route53_record.www.id}"
 //}

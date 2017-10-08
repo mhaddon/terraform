@@ -14,3 +14,11 @@ variable "maintenance_instance" {
     type = "t2.micro"
   }
 }
+
+variable "elasticsearch_images" {
+  type = "map"
+  default = {
+    instance_type = "t2.small"
+    docker_image = "elasticsearch:2.4.6"
+  }
+}
