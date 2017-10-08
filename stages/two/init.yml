@@ -10,5 +10,5 @@ coreos:
 
         [Service]
         Restart=always
-        ExecStart=/usr/bin/docker run --name=server -p 8080:8082 -e "SPRING_DATASOURCE_URL=${database_endpoint}" -e "SPRING_DATASOURCE_PASSWORD=${database_password}" -e "SPRING_DATASOURCE_USERNAME=${database_username}" "${image_name}"
+        ExecStart=/usr/bin/docker run --name=server -p 8080:8082 -e "SPRING_DATASOURCE_URL=${database_endpoint}" -e "SPRING_DATASOURCE_PASSWORD=${database_password}" -e "SPRING_DATASOURCE_USERNAME=${database_username}" -e "AIRPORTDEMO_CLUSTER_MASTER_IP=${master_ip}" -e "AIRPORTDEMO_CLUSTER_IS_SLAVE=${is_slave}" "${image_name}"
         ExecStop=/usr/bin/docker rm -f server

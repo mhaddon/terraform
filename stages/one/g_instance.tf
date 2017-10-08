@@ -36,6 +36,6 @@ resource "aws_instance" "maintenance" {
   }
 
   tags {
-    name="maintenance"
+    Name="maintenance"
   }
 }
