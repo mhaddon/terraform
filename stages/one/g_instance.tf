@@ -31,7 +31,7 @@ resource "aws_instance" "maintenance" {
   }
 
   provisioner "file" {
-    source      = "../../mysql/airportdemo.sql"
+    source      = "../../mysql/lunadump.sql"
     destination = "/tmp/database.sql"
   }
 

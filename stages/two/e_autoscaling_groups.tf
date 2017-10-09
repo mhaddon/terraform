@@ -6,6 +6,7 @@ resource "aws_autoscaling_group" "bar" {
   launch_configuration = "${aws_launch_configuration.as_conf.name}"
   min_size             = "${var.coreos_images["min_count"]}"
   max_size             = "${var.coreos_images["max_count"]}"
+  load_balancers       = ["${aws_elb.test.name}"]
 
   lifecycle {
     create_before_destroy = true

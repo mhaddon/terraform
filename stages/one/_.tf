@@ -4,7 +4,7 @@ variable "database" {
     type = "db.t2.micro"
     password = "drowssap"
     username = "root"
-    db_name = "airportdemo"
+    db_name = "lunatech"
   }
 }
 

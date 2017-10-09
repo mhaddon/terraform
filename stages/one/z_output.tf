@@ -32,6 +32,7 @@ output "db_password" {
 output "db_username" {
   value = "${aws_db_instance.default.username}"
 }
-//output "route53_id" {
-//  value = "${aws_route53_record.www.id}"
-//}
+
+output "nat_subnet" {
+  value = "${aws_subnet.nat.id}"
+}
