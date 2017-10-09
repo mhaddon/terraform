@@ -25,8 +25,9 @@ resource "aws_alb_listener" "test" {
 
 resource "aws_route53_record" "www" {
   zone_id = "${var.aws_route53_record_zone_id}"
-  name    = "daniel.devops-training.lunatech.com"
+  name    = "${var.subdomain}.devops-training.lunatech.com"
   type    = "A"
+
   alias {
     evaluate_target_health = false
     name = "${aws_alb.test.dns_name}"
