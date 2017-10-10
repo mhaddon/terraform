@@ -1,2 +1,2 @@
-region = "us-east-1"
-bucket = "lunatech-devops-training-terraform-state"
+region = "eu-central-1"
+bucket = "lunatech-devops-training-terraform-state-europe"

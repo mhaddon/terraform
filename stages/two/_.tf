@@ -3,8 +3,8 @@ variable "coreos_images" {
   default = {
     instance_type = "t2.small"
     docker_image = "mhaddon/airportdemo:latest"
-    min_count = 2
-    max_count = 4
+    min_count = 4
+    max_count = 8
   }
 }
 

@@ -4,6 +4,9 @@ output "db_vpc_id" {
 output "subnet_primary" {
   value = "${aws_subnet.ec2.*.id}"
 }
+output "subnet_elb" {
+  value = "${aws_subnet.elb.*.id}"
+}
 output "security_group_id"{
   value = "${aws_security_group.allow_all.id}"
 }
@@ -34,6 +37,9 @@ output "db_username" {
 }
 output "elastic_search_server_ip" {
   value = "${aws_instance.elasticsearch_server.private_ip}"
+}
+output "net_subnet" {
+  value = "${aws_subnet.nat.id}"
 }
 //output "route53_id" {
 //  value = "${aws_route53_record.www.id}"

@@ -6,7 +6,7 @@ resource "aws_route" "default" {
 
 resource "aws_route_table" "nat" {
   vpc_id = "${aws_vpc.default.id}"
-  count = "${(length(data.aws_availability_zones.available.names)-1)}"
+  count = "${(length(data.aws_availability_zones.available.names))}"
   route {
     cidr_block = "0.0.0.0/0"
     nat_gateway_id = "${element(aws_nat_gateway.public.*.id,count.index)}"
@@ -14,7 +14,7 @@ resource "aws_route_table" "nat" {
 }
 
 resource "aws_route_table_association" "nat" {
-  count = "${(length(data.aws_availability_zones.available.names)-1)}"
+  count = "${(length(data.aws_availability_zones.available.names))}"
   route_table_id = "${element(aws_route_table.nat.*.id,count.index)}"
   subnet_id = "${element(aws_subnet.ec2.*.id,count.index)}"
 }
