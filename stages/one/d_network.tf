@@ -10,6 +10,12 @@ resource "aws_eip" "public" {
   vpc = true
 }
 
+resource "aws_subnet" "internet_subnets" {
+  count = "${length(data.aws_availability_zones.available.names)}"
+  cidr_block = "172.16.2${count.index+1}0.0/24"
+  vpc_id = "${aws_vpc.default.id}"
+  availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
+}
 resource "aws_subnet" "nat" {
   cidr_block = "172.16.100.0/24"
   vpc_id = "${aws_vpc.default.id}"

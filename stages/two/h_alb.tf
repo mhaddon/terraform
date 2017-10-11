@@ -24,8 +24,9 @@
 //}
 
 resource "aws_elb" "test" {
-  subnets = ["${data.terraform_remote_state.output.nat_subnet}"]
+  subnets = ["${data.terraform_remote_state.output.subnet_ig}"]
   security_groups = ["${data.terraform_remote_state.output.security_group_id}"]
+
 //  internal = true
 
 
